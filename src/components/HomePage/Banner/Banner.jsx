@@ -1,11 +1,92 @@
-import React from 'react';
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
+import PrimaryButton from "@/components/shared/Button/PrimaryButton";
 
 const Banner = () => {
-    return (
-        <div>
-            
+  const { resolvedTheme } = useTheme();
+
+  return (
+    <section className="flex items-center relative overflow-hidden min-h-screen py-40  bg-cover bg-center bg-no-repeat z-100">
+      {/* Desktop Background */}
+      <div
+        className=" absolute inset-0 hidden xl:block bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${
+            resolvedTheme === "light" ? "/light-banner.png" : "/dark-banner.png"
+          })`,
+        }}
+      />
+      {/* mobile gradient bg */}
+
+      <div className="xl:hidden absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-background dark:from-(--accent-soft)/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
+
+      {/* content */}
+      <motion.div
+        className="container mx-auto px-4 relative z-600"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.2, delayChildren: 0.1 },
+          },
+        }}
+      >
+        {/* Subtitle */}
+        <motion.h6
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
+          className="text-center xl:text-left text-[10px] md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 lg:mb-6"
+        >
+          CRAFTED - FOR - EVERYDAY - ELEGANCE
+        </motion.h6>
+
+        {/* Title with gradient split */}
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
+          className="text-center xl:text-left  text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
+        >
+          <span className="bg-linear-to-r from-accent to-text-primary dark:to-white bg-clip-text text-transparent">
+            Timeless Fashion,
+          </span>
+          <br />
+          <span className="text-text-primary dark:text-white">
+            Designed for Every Moment.
+          </span>
+        </motion.h2>
+
+        {/* Description */}
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+          }}
+          className="text-lg sm:text-xl text-text-secondary xl:max-w-2xl mx-auto lg:mx-0 leading-relaxed pt-4 lg:pt-6 text-center xl:text-left "
+        >
+          Nokshi is a contemporary fashion brand bringing together premium
+          essentials, modern design, and everyday confidence in every
+          collection.
+        </motion.p>
+
+        {/* btn */}
+        <div className="text-center xl:text-left">
+          <PrimaryButton className={"mt-6 lg:mt-12 mx-auto"}>
+            Shop Now
+          </PrimaryButton>
         </div>
-    );
+      </motion.div>
+    </section>
+  );
 };
 
 export default Banner;

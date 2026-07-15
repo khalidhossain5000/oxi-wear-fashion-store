@@ -20,31 +20,32 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   //sticky header
-  useEffect(()=>{
-    const handleScroll=()=>{
-      if(window.scrollY>50){
-        setIsScrolled(true)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
-      else{
-        setIsScrolled(false)
-      }
-    }
-    handleScroll()
-    window.addEventListener("scroll",handleScroll,{passive:true})
-    return ()=>window.removeEventListener("scroll",handleScroll)
-  },[])
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <header className={`bg-foreground py-4 px-2 md:px-4 xl:px-0 fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out ${
-          isScrolled
-            ? "bg-background/80 backdrop-blur-md shadow-sm py-4"
-            : "bg-transparent py-6"
-        }`}>
+    <header
+      className={`bg-foreground py-4 px-2 md:px-4 xl:px-0 fixed top-0 left-0 right-0 z-400 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm py-4"
+          : "bg-transparent py-6"
+      }`}
+    >
       <section className="max-w-7xl mx-auto flex items-center justify-between">
         {/* logo */}
         <div>
           {/* <Image src={"/new.png"} alt="website main logo" width={150} height={50} className="h-"/> */}
-          <h2 className="text-2xl font-bold text-accent">
-           Nok<span>shi</span>
+          <h2 className="text-3xl font-bold bg-linear-to-r from-accent to-text-primary dark:to-text-primary bg-clip-text text-transparent">
+            Nokshi
           </h2>
         </div>
         {/* nav items */}
