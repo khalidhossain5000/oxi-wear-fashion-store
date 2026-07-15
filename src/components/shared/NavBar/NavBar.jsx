@@ -19,6 +19,8 @@ const NavBar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
+ 
   //sticky header
   useEffect(() => {
     const handleScroll = () => {

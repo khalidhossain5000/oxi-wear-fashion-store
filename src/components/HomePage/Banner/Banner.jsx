@@ -10,8 +10,7 @@ const Banner = () => {
 
   return (
     <section
-      className="flex items-center relative overflow-hidden min-h-screen py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')]
-  dark:bg-[url('/dark-banner.png')]"
+      className="flex items-center relative overflow-hidden min-h-screen py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')] dark:bg-[url('/dark-banner.png')]"
     >
       {/* mobile gradient bg */}
 
