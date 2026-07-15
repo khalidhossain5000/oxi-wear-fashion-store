@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${playfair.variable} ${sora.variable} h-full antialiased`}
+      className={`${playfair.variable} ${sora.variable} h-full antialiased bg-background`}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider
