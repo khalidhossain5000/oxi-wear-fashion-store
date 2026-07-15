@@ -15,7 +15,7 @@ const ThemeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative w-9 h-9 rounded-full cursor-pointer"
+      className="relative w-8 h-8 lg:w-9 lg:h-9 rounded-full cursor-pointer"
     >
       <motion.div
         key={isDark ? "dark" : "light"}
@@ -23,7 +23,7 @@ const ThemeToggle = () => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 200, damping: 15 }}
         className={`absolute inset-0 rounded-full ${
-          isDark ? "bg-neutral-900" : "bg-yellow-400"
+          isDark ? "bg-accent-soft" : "bg-accent"
         }`}
       />
 
@@ -38,7 +38,7 @@ const ThemeToggle = () => {
         {isDark ? (
           <Moon className="w-6 h-6 text-white" />
         ) : (
-          <Sun className="w-6 h-6 text-black" />
+          <Sun className="w-6 h-6 text-white" />
         )}
       </motion.div>
     </Button>

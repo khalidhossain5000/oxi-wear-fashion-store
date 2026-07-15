@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import CartButton from "../Button/CartButton";
+import { Menu } from "lucide-react";
+import MobileMenu from "./MobileNav";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,16 +17,19 @@ const navLinks = [
 
 const NavBar = () => {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-foreground py-4">
+    <header className="bg-foreground py-4 px-2 md:px-4 xl:px-0">
       <section className="max-w-7xl mx-auto flex items-center justify-between">
         {/* logo */}
         <div>
           {/* <Image src={"/new.png"} alt="website main logo" width={150} height={50} className="h-"/> */}
-          <h2 className="text-2xl font-bold text-accent">OxiWear</h2>
+          <h2 className="text-2xl font-bold text-accent">
+            Oxi <span className="text-accent font-bold">Wear</span>
+          </h2>
         </div>
         {/* nav items */}
-        <nav className="hidden xl:flex items-center space-x-6 text-sm text-text-primary">
+        <nav className="hidden lg:flex items-center space-x-6 text-sm text-text-primary">
           {navLinks.map((link, i) => {
             const isActive = pathname === link.href;
             return (
@@ -39,11 +44,26 @@ const NavBar = () => {
           })}
         </nav>
         {/* cta and cart icon */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4 lg:gap-2">
           <ThemeToggle />
-          <CartButton/>
+          <CartButton />
+          {/* Mobile Menu Toggle Button */}
+          <div className="lg:hidden flex items-center">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="text-accent transition-colors focus:outline-none"
+            >
+              <Menu size={25} />
+            </button>
+          </div>
         </div>
       </section>
+      {/* Mobile Drawer Component */}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        navLinks={navLinks}
+      />
     </header>
   );
 };
