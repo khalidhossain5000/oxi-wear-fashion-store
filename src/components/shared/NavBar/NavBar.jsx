@@ -36,7 +36,7 @@ const NavBar = () => {
   }, []);
   return (
     <header
-      className={`bg-foreground py-4 px-2 md:px-4 xl:px-0 fixed top-0 left-0 right-0 z-400 transition-all duration-300 ease-in-out ${
+      className={`bg-foreground py-4 px-2 md:px-4 xl:px-0 fixed top-0 left-0 right-0 z-40000 transition-all duration-300 ease-in-out ${
         isScrolled
           ? "bg-background/80 backdrop-blur-md shadow-sm py-4"
           : "bg-transparent py-6"
