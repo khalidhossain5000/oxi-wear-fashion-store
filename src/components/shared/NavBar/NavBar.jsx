@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -18,14 +18,33 @@ const navLinks = [
 const NavBar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  //sticky header
+  useEffect(()=>{
+    const handleScroll=()=>{
+      if(window.scrollY>50){
+        setIsScrolled(true)
+      }
+      else{
+        setIsScrolled(false)
+      }
+    }
+    handleScroll()
+    window.addEventListener("scroll",handleScroll,{passive:true})
+    return ()=>window.removeEventListener("scroll",handleScroll)
+  },[])
   return (
-    <header className="bg-foreground py-4 px-2 md:px-4 xl:px-0">
+    <header className={`bg-foreground py-4 px-2 md:px-4 xl:px-0 fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md shadow-sm py-4"
+            : "bg-transparent py-6"
+        }`}>
       <section className="max-w-7xl mx-auto flex items-center justify-between">
         {/* logo */}
         <div>
           {/* <Image src={"/new.png"} alt="website main logo" width={150} height={50} className="h-"/> */}
           <h2 className="text-2xl font-bold text-accent">
-            Oxi <span className="text-accent font-bold">Wear</span>
+           Nok<span>shi</span>
           </h2>
         </div>
         {/* nav items */}
