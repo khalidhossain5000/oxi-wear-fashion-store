@@ -56,7 +56,7 @@ const NavBar = () => {
               <Link
                 key={`k${i}`}
                 href={link.href}
-                className={`text-text-primary hover:text-gray-600 font-semibold transition-colors text-xl capitalize ${isActive ? "bg-accent-soft px-4 py-2 rounded-full" : ""}`}
+                className={`relative z-600 text-text-primary hover:text-gray-600 font-semibold transition-colors text-xl capitalize ${isActive ? "bg-[#29eddd5a]  dark:bg-accent-soft px-4 py-2 rounded-full" : ""}`}
               >
                 {link.name}
               </Link>

@@ -9,24 +9,19 @@ const Banner = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <section className="flex items-center relative overflow-hidden min-h-screen py-40  bg-cover bg-center bg-no-repeat z-100">
-      {/* Desktop Background */}
-      <div
-        className=" absolute inset-0 hidden xl:block bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${
-            resolvedTheme === "light" ? "/light-banner.png" : "/dark-banner.png"
-          })`,
-        }}
-      />
+    <section
+      className="flex items-center relative overflow-hidden min-h-screen py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')]
+  dark:bg-[url('/dark-banner.png')]"
+    >
       {/* mobile gradient bg */}
 
-      <div className="xl:hidden absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-background dark:from-(--accent-soft)/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
+      <div className="xl:hidden absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
 
       {/* content */}
       <motion.div
         className="container mx-auto px-4 relative z-600"
         initial="hidden"
+        key={resolvedTheme}
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={{
@@ -56,11 +51,11 @@ const Banner = () => {
           }}
           className="text-center xl:text-left  text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
         >
-          <span className="bg-linear-to-r from-accent to-text-primary dark:to-white bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-accent to-text-primary  bg-clip-text text-transparent">
             Timeless Fashion,
           </span>
           <br />
-          <span className="text-text-primary dark:text-white">
+          <span className="text-text-primary dark:text-text-primary">
             Designed for Every Moment.
           </span>
         </motion.h2>
