@@ -1,6 +1,8 @@
 import { Playfair_Display, Sora } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import NavBar from "@/components/shared/NavBar/NavBar";
+import Footer from "@/components/shared/Footer/Footer";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair-display",
@@ -25,15 +27,17 @@ export default function RootLayout({ children }) {
       className={`${playfair.variable} ${sora.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider 
-         attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-        {children}
+          <NavBar />
+          {children}
+          <Footer />
         </ThemeProvider>
-        </body>
+      </body>
     </html>
   );
 }
