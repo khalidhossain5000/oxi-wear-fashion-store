@@ -2,9 +2,10 @@
 import NotFound from "@/components/shared/NotFound/NotFound";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 import products from "@/data/productsData";
 import ProductContent from "../ProductDetailsContent/ProductContent";
+import { toast } from "sonner";
+import CartToast from "../CartToast/CartToast";
 
 const ProductDetails = ({ id }) => {
   const singleProduct = products.find((p) => p.id == id);
@@ -18,10 +19,35 @@ const ProductDetails = ({ id }) => {
   const [quantity, setQuantity] = useState(1);
 
   if (!singleProduct) return <NotFound />;
- 
+  const handleAddToCart = (item) => {
+    const {
+      colors,
+      sizes,
+      description,
+      isFeatured,
+      inStock,
+      rating,
+      ...productInfo
+    } = item;
+
+    const cartData = {
+      ...productInfo,
+      quantity,
+      selectedColor,
+      selectedSize,
+    };
+    //success toast
+    toast.custom((id)=>(
+      <CartToast id={id} productName={cartData.name} />
+    ),{
+    position: "top-center",
+    duration:Infinity
+  })
+    console.log(cartData, "this is cart data");
+  };
   return (
     <section className="min-h-screen bg-background py-26 xl:py-44 relative ">
-       <div className="absolute inset-0  bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background" />
+      <div className="absolute inset-0  bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background" />
 
       <motion.div
         initial="hidden"
@@ -82,6 +108,7 @@ const ProductDetails = ({ id }) => {
             setSelectedSize={setSelectedSize}
             quantity={quantity}
             setQuantity={setQuantity}
+            handleAddToCart={handleAddToCart}
           />
         </motion.div>
       </motion.div>

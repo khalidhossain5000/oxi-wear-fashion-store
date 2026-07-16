@@ -12,6 +12,7 @@ const ProductContent = ({
   setSelectedSize,
   quantity,
   setQuantity,
+  handleAddToCart
 }) => {
   return (
     <div className="space-y-6">
@@ -113,16 +114,16 @@ const ProductContent = ({
       )}
 
       {/* Quantity & Add to Cart */}
-      <div className="flex gap-4 pt-4">
+      <div className="flex items-center flex-col lg:flex-row gap-4 pt-4">
         {/* Quantity Selector */}
-        <div className="font-manrope flex items-center  border-2 border-border rounded-full overflow-hidden ">
+        <div className="font-manrope flex items-center border-2 border-border rounded-full overflow-hidden ">
           <button
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
             className="px-4 py-3 text-xl font-bold text-text-primary bg-accent-soft hover:bg-muted-surface transition-colors cursor-pointer"
           >
             <Minus />
           </button>
-          <span className="font-sora px-4 py-3 text-lg font-semibold text-text-primary  min-w-6 lg:min-w-12 text-center bg-foreground">
+          <span className="font-sora px-4 py-3 text-sm lg:text-lg font-semibold text-text-primary  min-w-6 lg:min-w-12 text-center bg-foreground">
             Quantity : {quantity}
           </span>
           <button
@@ -135,7 +136,7 @@ const ProductContent = ({
 
         {/* Add to Cart Button */}
         <div className="">
-          <SecondaryButton Icon={ShoppingCart} iconClass={"hidden md:block"}>
+          <SecondaryButton onClick={()=>handleAddToCart(singleProduct)} Icon={ShoppingCart} iconClass={"hidden md:block"}>
             {" "}
             {singleProduct.inStock ? "Add to Cart" : "Out of Stock"}
           </SecondaryButton>

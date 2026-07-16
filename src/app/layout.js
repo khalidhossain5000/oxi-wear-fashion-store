@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import NavBar from "@/components/shared/NavBar/NavBar";
 import Footer from "@/components/shared/Footer/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair-display",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         >
           <NavBar />
           {children}
+               <Toaster/>
           <Footer />
         </ThemeProvider>
       </body>
