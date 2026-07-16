@@ -1,11 +1,14 @@
-import React from 'react';
+import ProductDetails from '@/components/ProductDetailsPage/ProductDetails/ProductDetails';
+import React, { use } from 'react';
 
-const ProductDetails = () => {
+const ProductDetailsPage = ({params}) => {
+    const {id}=use(params)
+    
     return (
         <div>
-            
+            <ProductDetails id={id} />
         </div>
     );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;
