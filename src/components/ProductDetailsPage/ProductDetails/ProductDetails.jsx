@@ -18,9 +18,11 @@ const ProductDetails = ({ id }) => {
   const [quantity, setQuantity] = useState(1);
 
   if (!singleProduct) return <NotFound />;
-  console.log(singleProduct);
+ 
   return (
-    <section className="min-h-screen bg-background py-10 lg:py-16 xl:py-22">
+    <section className="min-h-screen bg-background py-26 xl:py-44 relative ">
+       <div className="absolute inset-0  bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background" />
+
       <motion.div
         initial="hidden"
         animate="visible"
@@ -28,7 +30,7 @@ const ProductDetails = ({ id }) => {
           hidden: { opacity: 0 },
           visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
         }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-6 lg:gap-8"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-between gap-6 lg:gap-8 xl:gap-12 relative z-100"
       >
         {/* left side image */}
         <motion.div
@@ -36,29 +38,29 @@ const ProductDetails = ({ id }) => {
             hidden: { opacity: 0, x: -40 },
             visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
           }}
-          className="relative"
+          className="relative flex-1"
         >
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-3xl bg-muted-surface shadow-2xl shadow-accent/10">
+          <div className="relative  p-6 overflow-hidden rounded-3xl bg-accent-soft shadow-2xl shadow-accent/60">
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
               src={singleProduct.image}
               alt={singleProduct.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full lg:h-9/12"
             />
             {/* Badges */}
             {!singleProduct.inStock && (
-              <span className="absolute top-4 left-4 bg-accent/70 text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
+              <span className="absolute top-4 left-4 bg-accent text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
                 Out of Stock
               </span>
             )}
             {singleProduct.inStock && (
-              <span className="absolute top-4 left-4 bg-accent/70 text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
+              <span className="absolute top-4 left-4 bg-accent/70 text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
                 In Stock
               </span>
             )}
             {singleProduct.isFeatured && (
-              <span className="absolute top-4 right-4 bg-accent text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg shadow-(--accent)/30">
+              <span className="absolute top-4 right-4 bg-accent text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg shadow-accent/30">
                 Featured
               </span>
             )}
@@ -70,7 +72,7 @@ const ProductDetails = ({ id }) => {
             hidden: { opacity: 0, x: 40 },
             visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
           }}
-          className="flex-1 flex flex-col justify-center"
+          className="flex-2 flex flex-col justify-center mt-12 lg:mt-0"
         >
           <ProductContent
             singleProduct={singleProduct}

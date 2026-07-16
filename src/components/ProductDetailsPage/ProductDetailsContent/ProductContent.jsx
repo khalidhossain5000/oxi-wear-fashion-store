@@ -1,10 +1,18 @@
 import SecondaryButton from "@/components/shared/Button/SecondaryButton";
 import React from "react";
-import { ShoppingCart, Star } from "lucide-react";
+import { Minus, Plus, ShoppingCart, Star } from "lucide-react";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { TbCoinTaka } from "react-icons/tb";
 import Rating from "react-rating";
-const ProductContent = ({ singleProduct }) => {
+const ProductContent = ({
+  singleProduct,
+  selectedColor,
+  setSelectedColor,
+  selectedSize,
+  setSelectedSize,
+  quantity,
+  setQuantity,
+}) => {
   return (
     <div className="space-y-6">
       {/* Category & Rating */}
@@ -36,28 +44,28 @@ const ProductContent = ({ singleProduct }) => {
       </div>
 
       {/* Product Name */}
-      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
+      <h1 className="text-center lg:text-left text-2xl sm:text-4xl lg:text-5xl font-semibold lg:font-bold text-text-primary leading-tight font-sora">
         {singleProduct.name}
       </h1>
 
       {/* Price */}
-      <p className="text-3xl font-bold text-text-primary flex items-center gap-1">
+      <p className="text-center lg:text-left  text-3xl font-bold text-text-primary flex items-center justify-center lg:justify-start gap-1 font-manrope">
         <TbCoinTaka />
         {singleProduct.price}
       </p>
 
       {/* Description */}
-      <p className="text-base lg:text-lg text-text-secondary leading-relaxed">
+      <p className="text-center lg:text-left text-base lg:text-lg text-text-secondary leading-relaxed font-manrope">
         {singleProduct.description}
       </p>
 
       {/* Color Selector */}
       {singleProduct.colors?.length > 0 && (
         <div>
-          <p className="text-sm font-semibold text-text-primary mb-3">
+          <p className="font-manrope text-sm text-center lg:text-left  font-semibold text-text-primary mb-3">
             Color: <span className="text-text-secondary">{selectedColor}</span>
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap justify-center lg:justify-start pt-3 lg:pt-0  gap-2">
             {singleProduct.colors.map((color, i) => (
               <button
                 key={`c${i}`}
@@ -76,66 +84,62 @@ const ProductContent = ({ singleProduct }) => {
       )}
       {/* Size Selector */}
       {singleProduct.sizes && singleProduct.sizes.length > 0 && (
-        <div>
-          <p className="text-sm font-semibold text-text-primary mb-3">
-            Size: <span className="text-text-secondary">{selectedSize}</span>
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {/* Size Selector (text buttons) */}
-            {singleProduct.sizes?.length > 0 && (
-              <div>
-                <p className="text-sm font-semibold text-text-primary mb-3">
-                  Size:{" "}
-                  <span className="text-text-secondary">{selectedSize}</span>
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {singleProduct.sizes.map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`cursor-pointer min-w-12 px-4 py-2 rounded-lg border-2 text-sm font-semibold transition-all duration-200 ${
-                        selectedSize === size
-                          ? "border-accent bg-accent dark:bg-accent-soft text-foreground dark:text-text-primary shadow-lg shadow-accent/20"
-                          : "border-border bg-foreground text-text-primary hover:border-accent/50"
-                      }`}
-                    >
-                      {size}
-                    </button>
-                  ))}
-                </div>
+        <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+          {/* Size Selector (text buttons) */}
+          {singleProduct.sizes?.length > 0 && (
+            <div>
+              <p className="font-manrope text-sm font-semibold text-text-primary mb-3">
+                Size:{" "}
+                <span className="text-text-secondary">{selectedSize}</span>
+              </p>
+              <div className=" font-manrope flex flex-wrap pt-3 lg:pt-0 gap-2">
+                {singleProduct.sizes.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`cursor-pointer min-w-12 px-4 py-2 rounded-lg border-2 text-sm font-semibold transition-all duration-200 ${
+                      selectedSize === size
+                        ? "border-accent bg-accent dark:bg-accent-soft text-foreground dark:text-text-primary shadow-lg shadow-accent/20"
+                        : "border-border bg-foreground text-text-primary hover:border-accent/50"
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       )}
 
       {/* Quantity & Add to Cart */}
-      <div className="flex flex-col sm:flex-row gap-4 pt-4">
+      <div className="flex gap-4 pt-4">
         {/* Quantity Selector */}
-        <div className="flex items-center border-2 border-border rounded-full overflow-hidden">
+        <div className="font-manrope flex items-center  border-2 border-border rounded-full overflow-hidden ">
           <button
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            className="px-4 py-3 text-xl font-bold text-text-primary bg-accent-soft hover:bg-muted-surface transition-colors"
+            className="px-4 py-3 text-xl font-bold text-text-primary bg-accent-soft hover:bg-muted-surface transition-colors cursor-pointer"
           >
-            −
+            <Minus />
           </button>
-          <span className="px-4 py-3 text-lg font-semibold text-text-primary  min-w-12 text-center bg-foreground">
-            {quantity}
+          <span className="font-sora px-4 py-3 text-lg font-semibold text-text-primary  min-w-6 lg:min-w-12 text-center bg-foreground">
+            Quantity : {quantity}
           </span>
           <button
             onClick={() => setQuantity(quantity + 1)}
-            className="px-4 py-3 text-xl font-bold text-text-primary bg-accent-soft hover:bg-muted-surface transition-colors"
+            className="px-4 py-3 text-xl font-bold text-text-primary bg-accent-soft hover:bg-muted-surface transition-colors cursor-pointer"
           >
-            +
+            <Plus />
           </button>
         </div>
 
         {/* Add to Cart Button */}
-
-        <SecondaryButton Icon={ShoppingCart}>
-          {" "}
-          {singleProduct.inStock ? "Add to Cart" : "Out of Stock"}
-        </SecondaryButton>
+        <div className="">
+          <SecondaryButton Icon={ShoppingCart} iconClass={"hidden md:block"}>
+            {" "}
+            {singleProduct.inStock ? "Add to Cart" : "Out of Stock"}
+          </SecondaryButton>
+        </div>
       </div>
     </div>
   );

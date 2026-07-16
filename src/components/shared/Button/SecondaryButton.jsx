@@ -1,6 +1,6 @@
 import React from "react";
 
-const SecondaryButton = ({ children, className, Icon, spanClassName }) => {
+const SecondaryButton = ({ children, className, Icon, spanClassName,iconClass }) => {
 
   return (
     <button
@@ -8,9 +8,9 @@ const SecondaryButton = ({ children, className, Icon, spanClassName }) => {
     >
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#16100f_0%,#f9a300_50%,#f9a300_100%)]"></span>
       <span
-        className={`inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-accent px-7 text-sm lg:text-xl lg:font-bold font-medium text-foreground dark:text-text-primay backdrop-blur-3xl gap-2 ${spanClassName}`}
+        className={`font-manrope inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-accent px-7 text-sm lg:text-xl lg:font-bold font-medium text-foreground dark:text-text-primay backdrop-blur-3xl gap-2 ${spanClassName}`}
       >
-        {Icon && <Icon size={20} />} {children}
+        {Icon && <Icon size={20} className={`${iconClass}`}/>} {children}
       </span>
     </button>
   );
