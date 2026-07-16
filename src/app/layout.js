@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import NavBar from "@/components/shared/NavBar/NavBar";
 import Footer from "@/components/shared/Footer/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import CartProvider from "@/context/CartProvider";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair-display",
@@ -28,17 +29,19 @@ export default function RootLayout({ children }) {
       className={`${playfair.variable} ${sora.variable} h-full antialiased bg-background`}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NavBar />
-          {children}
-               <Toaster/>
-          <Footer />
-        </ThemeProvider>
+        <CartProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NavBar />
+            {children}
+            <Toaster />
+            <Footer />
+          </ThemeProvider>
+        </CartProvider>
       </body>
     </html>
   );

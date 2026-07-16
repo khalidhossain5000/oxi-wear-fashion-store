@@ -12,7 +12,7 @@ const Toaster = ({
   return (
     <Sonner
       theme={theme}
-      className="toaster group"
+      className="toaster group relative z-999999!"
       icons={{
         success: (
           <CircleCheckIcon className="size-4" />
@@ -40,7 +40,7 @@ const Toaster = ({
       }
       toastOptions={{
         classNames: {
-          toast: "cn-toast",
+          toast: "cn-toast !z-[999999]",
         },
       }}
       {...props} />

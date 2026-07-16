@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import products from "@/data/productsData";
 import ProductContent from "../ProductDetailsContent/ProductContent";
-import { toast } from "sonner";
-import CartToast from "../CartToast/CartToast";
+
+import useCart from "@/Hooks/useCart";
 
 const ProductDetails = ({ id }) => {
   const singleProduct = products.find((p) => p.id == id);
+  const { addToCart } = useCart();
+
   const [selectedColor, setSelectedColor] = useState(
     singleProduct?.colors[0] || "",
   );
@@ -36,13 +38,9 @@ const ProductDetails = ({ id }) => {
       selectedColor,
       selectedSize,
     };
-    //success toast
-    toast.custom((id)=>(
-      <CartToast id={id} productName={cartData.name} />
-    ),{
-    position: "top-center",
-    duration:Infinity
-  })
+    //calling add to cart
+    addToCart(cartData);
+
     console.log(cartData, "this is cart data");
   };
   return (

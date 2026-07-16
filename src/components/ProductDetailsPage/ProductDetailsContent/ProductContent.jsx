@@ -1,7 +1,6 @@
 import SecondaryButton from "@/components/shared/Button/SecondaryButton";
 import React from "react";
 import { Minus, Plus, ShoppingCart, Star } from "lucide-react";
-import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { TbCoinTaka } from "react-icons/tb";
 import Rating from "react-rating";
 const ProductContent = ({
