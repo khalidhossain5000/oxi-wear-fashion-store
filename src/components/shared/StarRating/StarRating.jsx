@@ -2,7 +2,7 @@
 import React from 'react';
 import { Star, StarHalf } from 'lucide-react';
 
-const StarRating = ({ rating = 0, size = 14 }) => {
+const StarRating = ({ rating = 0, size = 17 }) => {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 === 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
@@ -10,7 +10,7 @@ const StarRating = ({ rating = 0, size = 14 }) => {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: fullStars }).map((_, i) => (
-        <Star key={`full-${i}`} size={size} className="fill-accent text-accent" />
+        <Star key={`full-${i}`} size={size} className="fill-accent text-accent " />
       ))}
       {hasHalfStar && <StarHalf size={size} className="fill-accent text-accent" />}
       {Array.from({ length: emptyStars }).map((_, i) => (
