@@ -1,12 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import { toast } from "sonner";
 import CartToast from "@/components/ProductDetailsPage/CartToast/CartToast";
-import SuccessToast from "@/components/shared/Toast/SuccessToast";
+import { getCartFromStorage, setCartToStorage } from "@/utils/localStorage";
 
 const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  // const [cartItems, setCartItems] = useState([]);
+const [cartItems, setCartItems] = useState(() => getCartFromStorage());
+
+//set cart item from localstorage if exist
+ useEffect(() => {
+  setCartToStorage(cartItems);
+}, [cartItems]);
   //optimized function checking if item and variant already exist
   const isSameVariant = (item, cartItem) =>
     item.id === cartItem.id &&
@@ -44,54 +50,101 @@ const CartProvider = ({ children }) => {
     }
   };
   //increase quantity from cart
-  const increaseQuantity=(cartItem)=>{
-    setCartItems((prevCart)=>prevCart.map((item)=>isSameVariant(item,cartItem) ? {...item,quantity:item.quantity+1} : item))
-    SuccessToast("Quantity increased")
-  }
+  const increaseQuantity = (cartItem) => {
+    setCartItems((prevCart) =>
+      prevCart.map((item) =>
+        isSameVariant(item, cartItem)
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
+      ),
+    );
+    toast.success("Quantity Increased", {
+      position: "top-center",
+      style: {
+        backgroundColor: "#39d5c0",
+      },
+    });
+  };
   //decrease quantity
 
+  const decreaseQuantity = (cartItem) => {
+    setCartItems((prevCart) => {
+      const existingItem = prevCart.find((item) =>
+        isSameVariant(item, cartItem),
+      );
+      console.log("Inide decrease quanity");
+      if (!existingItem) return prevCart;
 
-const decreaseQuantity=(cartItem)=>{
-   setCartItems((prevCart) => {
-    const existingItem = prevCart.find((item) =>
-      isSameVariant(item, cartItem)
+      if (existingItem.quantity === 1) {
+        toast.warning("Minimum quantity is 1.", {
+          position: "bottom-right",
+          className: "relative !z-[999999]",
+        });
+
+        return prevCart;
+      }
+
+      return prevCart.map((item) =>
+        isSameVariant(item, cartItem)
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
+      );
+    });
+
+    //if ottost issue then
+    //   const existingItem = cartItems.find((item) =>
+    //   isSameVariant(item, cartItem)
+    // );
+
+    // if (!existingItem) return;
+
+    // if (existingItem.quantity === 1) {
+    //   toast.warning("Minimum quantity is 1.", {
+    //     position: "bottom-right",
+    //   });
+
+    //   return;
+    // }
+
+    // setCartItems((prevCart) =>
+    //   prevCart.map((item) =>
+    //     isSameVariant(item, cartItem)
+    //       ? { ...item, quantity: item.quantity - 1 }
+    //       : item
+    //   )
+    // );
+  };
+
+  //remove item from cart
+
+  const removeFromCart = (cartItem) => {
+    setCartItems((prevCart) =>
+      prevCart.filter((item) => !isSameVariant(item, cartItem)),
     );
 
-    if (!existingItem) return prevCart;
+    toast.success(`${cartItem.name} removed from cart.`, {
+      position: "bottom-right",
+      className: "relative !z-[999999]",
+    });
+  };
 
-    if (existingItem.quantity === 1) {
-      toast.warning("Minimum quantity is 1.", {
-        position: "bottom-right",
-        className: "relative !z-[999999]",
-      });
+  //clear cart
+  const clearCart = () => {
+    setCartItems([]);
 
-      return prevCart;
-    }
-
-    return prevCart.map((item) =>
-      isSameVariant(item, cartItem)
-        ? { ...item, quantity: item.quantity - 1 }
-        : item
-    );
-  });
-}
-
-
-
-
-
-
-
-
-
-
-
+    toast.success("Cart cleared successfully.", {
+      position: "bottom-right",
+      className: "relative !z-[999999]",
+    });
+  };
 
   const cartInfo = {
     cartItems,
     addToCart,
     increaseQuantity,
-    decreaseQuantity
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
   };
   return <CartContext value={cartInfo}>{children}</CartContext>;
 };

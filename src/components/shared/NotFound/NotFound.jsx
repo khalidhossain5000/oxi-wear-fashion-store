@@ -43,7 +43,7 @@ const NotFound = () => {
 
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-[var(--text)] transition-all duration-200 hover:bg-[var(--muted-surface)]"
+            className="inline-flex items-center gap-2 rounded-xl border border-border bg-foreground px-6 py-3 text-sm font-medium text-text-primary transition-all duration-200 hover:bg-muted-surface"
           >
             Browse Products
            <ShoppingBag />

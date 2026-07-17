@@ -38,7 +38,9 @@ export default function RootLayout({ children }) {
           >
             <NavBar />
             {children}
-            <Toaster />
+            <Toaster  style={{
+    zIndex: 999999,
+  }}/>
             <Footer />
           </ThemeProvider>
         </CartProvider>
