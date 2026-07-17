@@ -3,6 +3,8 @@ import { Star } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import Rating from "react-rating";
+import { TbCurrencyTaka } from 'react-icons/tb';
+
 /* eslint-disable @next/next/no-img-element */
 const ProductCard = ({ product }) => {
    
@@ -67,7 +69,7 @@ const ProductCard = ({ product }) => {
         </p>
         <div className="flex items-center justify-between mt-auto">
           <span className="text-xl font-bold text-accent">
-            ৳{product.price}
+            <TbCurrencyTaka/>{product.price}
           </span>
           
           <Link href={`/products/${product.id}`}><PrimaryButton>Details</PrimaryButton> </Link>

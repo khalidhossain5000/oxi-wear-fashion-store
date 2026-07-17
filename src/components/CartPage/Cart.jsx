@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 
 "use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Minus, Plus, Trash2, ShoppingCart } from "lucide-react";
+import { Minus, Plus, Trash2 } from "lucide-react";
 import useCart from "@/Hooks/useCart";
 import CartEmpty from "../shared/NotFound/CartEmpty";
-
 import PageBanner from "@/components/shared/PageBanner/PageBanner";
 import OrderSummary from "./OrderSummary";
+import { TbCurrencyTaka } from 'react-icons/tb';
+
 const CartPage = () => {
   const [shippingZone, setShippingZone] = useState("inside");
   const {
@@ -47,7 +47,7 @@ const CartPage = () => {
             <div className="flex justify-end">
               <button
                 onClick={clearCart}
-                className="cursor-pointer flex items-center gap-2 text-sm text-red-500 hover:text-red-600 transition-colors px-3 py-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20"
+                className="cursor-pointer flex items-center gap-2 text-sm text-black hover:text-red-600 transition-colors px-3 py-2 rounded-lg hover:bg-red-50 bg-accent-soft font-sora"
               >
                 <Trash2 className="w-4 h-4" />
                 Clear Cart
@@ -80,7 +80,7 @@ const CartPage = () => {
                       <p className="text-sm text-text-secondary">
                         {item.category}
                       </p>
-                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-text-secondary">
+                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-text-secondary font-manrope">
                         <span>Color: {item.selectedColor}</span>
                         <span>Size: {item.selectedSize}</span>
                       </div>
@@ -96,7 +96,7 @@ const CartPage = () => {
                         >
                           <Minus className="w-4 h-4" />
                         </button>
-                        <span className="w-8 text-center text-sm font-medium">
+                        <span className="w-8 text-center text-sm font-medium font-manrope">
                           {item.quantity}
                         </span>
                         <button
@@ -110,7 +110,7 @@ const CartPage = () => {
 
                       <div className="flex items-center gap-4">
                         <p className="font-medium">
-                          ৳{(item.price * item.quantity).toLocaleString()}
+                         < TbCurrencyTaka/>{(item.price * item.quantity).toLocaleString()}
                         </p>
                         <button
                           onClick={() => removeFromCart(item)}
@@ -133,7 +133,7 @@ const CartPage = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-foreground rounded-2xl border border-border p-6 sticky top-24"
+              className="bg-accent-soft/40 dark:bg-foreground rounded-2xl border border-border p-6 sticky top-24"
             >
               <OrderSummary
                 shippingZone={shippingZone}
