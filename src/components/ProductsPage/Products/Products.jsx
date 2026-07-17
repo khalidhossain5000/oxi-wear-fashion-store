@@ -13,7 +13,7 @@ const Products = () => {
   // Extract unique categories
   const categories = useMemo(() => {
     const cats = products.map((p) => p.category);
-    return ["All", ...new Set(cats)];
+    return [`All (${products.length})`, ...new Set(cats)];
   }, []);
 
   // Filter products based on category and search
@@ -30,7 +30,7 @@ const Products = () => {
 
  
   return (
-    <section className="py-12 lg:py-16 bg-background">
+    <section className="py-12 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Bar: Category Filter & Search */}
         <FilterSearch

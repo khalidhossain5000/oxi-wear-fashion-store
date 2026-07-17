@@ -3,7 +3,7 @@ import React from "react";
 import { Minus, Plus, ShoppingCart, Star } from "lucide-react";
 import { TbCoinTaka } from "react-icons/tb";
 import StarRating from "@/components/shared/StarRating/StarRating";
-
+import { TbCurrencyTaka } from "react-icons/tb";
 const ProductContent = ({
   singleProduct,
   selectedColor,
@@ -13,24 +13,21 @@ const ProductContent = ({
   quantity,
   setQuantity,
   handleAddToCart,
-  cartItems
+  cartItems,
 }) => {
-  const currentCartItem=cartItems.find((item)=>item.id==singleProduct.id)
+  const currentCartItem = cartItems.find((item) => item.id == singleProduct.id);
 
   return (
     <div className="space-y-6">
-      {/* Category & Rating */}
-      <div className="flex items-center justify-between flex-wrap gap-2">
-        <span className="text-xs font-semibold uppercase tracking-[0.15em] text-accent bg-accent-soft dark:bg-accent-soft/40 px-3 py-1 rounded-full">
+      {/* Category Rating */}
+      <div className="flex items-center justify-between font-manrope">
+        <p className="text-[11px] lg:text-xs font-medium capitalize tracking-wide text-text-secondary">
           {singleProduct.category}
-        </span>
-        <div className="flex items-center gap-1 mb-3">
-          {/* Rating stars */}
-          <div className="flex items-center">
-            <StarRating rating={product.rating}/>
-          </div>
-          <span className="text-sm text-text-secondary ml-1">
-            ({singleProduct.rating})
+        </p>
+        <div className="flex items-center gap-1">
+          <StarRating rating={singleProduct.rating} size={12} />
+          <span className="text-[11px] text-text-secondary ">
+            {singleProduct.rating}
           </span>
         </div>
       </div>
@@ -42,7 +39,7 @@ const ProductContent = ({
 
       {/* Price */}
       <p className="text-center lg:text-left  text-3xl font-bold text-text-primary flex items-center justify-center lg:justify-start gap-1 font-manrope">
-        <TbCoinTaka />
+        <TbCurrencyTaka />
         {singleProduct.price}
       </p>
 
@@ -127,7 +124,11 @@ const ProductContent = ({
 
         {/* Add to Cart Button */}
         <div className="">
-          <SecondaryButton onClick={()=>handleAddToCart(singleProduct)} Icon={ShoppingCart} iconClass={"hidden md:block"}>
+          <SecondaryButton
+            onClick={() => handleAddToCart(singleProduct)}
+            Icon={ShoppingCart}
+            iconClass={"hidden md:block"}
+          >
             {" "}
             {singleProduct.inStock ? "Add to Cart" : "Out of Stock"}
           </SecondaryButton>

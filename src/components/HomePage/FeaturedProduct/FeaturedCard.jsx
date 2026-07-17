@@ -25,7 +25,7 @@ const FeaturedCard = ({ product }) => {
             height={100}
           />
 
-          {/* Details button — always visible on mobile/tablet, hover-reveal on desktop */}
+       
           <div
             className="
             absolute inset-x-0 bottom-0 p-3
@@ -55,7 +55,7 @@ const FeaturedCard = ({ product }) => {
 
         {/* Info */}
         <div className="p-4 flex flex-col gap-2">
-          {/* Category + Rating */}
+          {/* Category Rating */}
           <div className="flex items-center justify-between font-manrope">
             <p className="text-[11px] lg:text-xs font-medium capitalize tracking-wide text-text-secondary">
               {category}

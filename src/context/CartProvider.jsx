@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
@@ -6,8 +7,10 @@ import CartToast from "@/components/ProductDetailsPage/CartToast/CartToast";
 import { getCartFromStorage, setCartToStorage } from "@/utils/localStorage";
 
 const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState(getCartFromStorage);
-
+  const [cartItems, setCartItems] = useState([]);
+  useEffect(() => {
+    setCartItems(getCartFromStorage);
+  }, []);
   //set cart item from localstorage if exist
   useEffect(() => {
     setCartToStorage(cartItems);

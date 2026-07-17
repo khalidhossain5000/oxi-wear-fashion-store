@@ -19,7 +19,7 @@ const CartButton = () => {
         <BsCart size={20} />
         {/* Cart Indicator */}
         <span className="absolute -top-1 -right-1 flex lg:h-5 lg:min-w-5 h-3 min-w-3 items-center justify-center rounded-full bg-accent px-1 text-[10px] lg:text-[13px] font-semibold text-white">
-          {cartItems.length || 0}
+          {cartItems?.length || 0}
         </span>
       </Link>
     </div>

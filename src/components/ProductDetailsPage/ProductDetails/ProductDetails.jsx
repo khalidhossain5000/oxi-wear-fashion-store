@@ -6,10 +6,11 @@ import products from "@/data/productsData";
 import ProductContent from "../ProductContent/ProductContent";
 
 import useCart from "@/Hooks/useCart";
-
+import Image from "next/image";
+const MotionImage = motion(Image);
 const ProductDetails = ({ id }) => {
   const singleProduct = products.find((p) => p.id == id);
-  const { addToCart ,cartItems} = useCart();
+  const { addToCart, cartItems } = useCart();
 
   const [selectedColor, setSelectedColor] = useState(
     singleProduct?.colors[0] || "",
@@ -22,7 +23,6 @@ const ProductDetails = ({ id }) => {
 
   if (!singleProduct) return <NotFound />;
   const handleAddToCart = (item) => {
-  
     const {
       colors,
       sizes,
@@ -41,9 +41,8 @@ const ProductDetails = ({ id }) => {
     };
     //calling add to cart
     addToCart(cartData);
-
-
   };
+
   return (
     <section className="min-h-screen bg-background py-26 xl:py-44 relative ">
       <div className="absolute inset-0  bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background" />
@@ -66,12 +65,14 @@ const ProductDetails = ({ id }) => {
           className="relative flex-1"
         >
           <div className="relative  p-6 overflow-hidden rounded-3xl bg-accent-soft shadow-2xl shadow-accent/60">
-            <motion.img
+            <MotionImage
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
               src={singleProduct.image}
               alt={singleProduct.name}
               className="w-full h-full lg:h-9/12"
+              width={200}
+              height={100}
             />
             {/* Badges */}
             {!singleProduct.inStock && (
