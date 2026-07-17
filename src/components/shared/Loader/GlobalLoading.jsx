@@ -16,7 +16,7 @@ const GlobalLoading = () => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
-            className="absolute inset-0 rounded-full border-4 border-transparent border-t-accent border-r--accent/30"
+            className="absolute inset-0 rounded-full border-4 border-transparent border-t-accent border-r-accent/30"
           />
           <motion.div
             animate={{ rotate: -360 }}
@@ -29,7 +29,7 @@ const GlobalLoading = () => {
         <motion.h2
           animate={{ opacity: [1, 0.6, 1] }}
           transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
-          className="text-2xl font-bold tracking-tight"
+          className="text-2xl font-bold tracking-tight font-manrope "
         >
           <span className="text-accent">Nok</span>
           <span className="text-text-primary ">shi</span>

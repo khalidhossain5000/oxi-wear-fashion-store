@@ -127,7 +127,7 @@ const products = [
     name: "International Trending 360 Degree Flexible Sneakers",
     category: "Shoes",
     price: 2990,
-    image: "/productImages/x.jpg",
+    image: "/productImages/x.png",
     rating: 5,
     colors: ["Black", "Red"],
     sizes: ["40", "41", "42", "43"],

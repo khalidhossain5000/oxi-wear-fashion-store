@@ -76,17 +76,17 @@ const ProductDetails = ({ id }) => {
             />
             {/* Badges */}
             {!singleProduct.inStock && (
-              <span className="absolute top-4 left-4 bg-accent text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
+              <span className="absolute top-4 left-4 bg-accent text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full font-manrope ">
                 Out of Stock
               </span>
             )}
             {singleProduct.inStock && (
-              <span className="absolute top-4 left-4 bg-accent/70 text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
+              <span className="font-manrope absolute top-4 left-4 bg-accent/70 text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full">
                 In Stock
               </span>
             )}
             {singleProduct.isFeatured && (
-              <span className="absolute top-4 right-4 bg-accent text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg shadow-accent/30">
+              <span className="absolute top-4 right-4 bg-accent text-foreground dark:text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg shadow-accent/30 font-manrope ">
                 Featured
               </span>
             )}

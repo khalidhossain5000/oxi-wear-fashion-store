@@ -79,10 +79,10 @@ const Footer = () => {
               <h2 className="mb-6 text-xl xl:text-2xl lg:font-bold font-semibold text-text-primary font-sora">
                 {c.title}
               </h2>
-              <h4 className="text-sm text-text-primary py-1 lg:text-lg">
+              <h4 className="text-sm text-text-primary py-1 lg:text-lg font-manrope ">
                 {c.address}
               </h4>
-              <h4 className="text-sm text-text-primary py-1 lg:text-lg">
+              <h4 className="text-sm text-text-primary py-1 lg:text-lg font-manrope ">
                 {c.email}
               </h4>
             </div>

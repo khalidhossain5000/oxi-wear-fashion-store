@@ -15,7 +15,7 @@ const FilterSearch = ({
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className="appearance-none w-full sm:w-56 bg-foreground border border-border rounded-xl px-5 py-3 pr-10 text-text-primary font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent transition-shadow"
+          className="appearance-none w-full sm:w-56 bg-foreground border border-border rounded-xl px-5 py-3 pr-10 text-text-primary font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent transition-shadow font-manrope "
         >
           {categories.map((cat) => (
             <option key={cat} value={cat}>
@@ -36,7 +36,7 @@ const FilterSearch = ({
           placeholder="Search products..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-foreground border border-border rounded-xl pl-12 pr-5 py-3 text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent transition-shadow"
+          className="w-full bg-foreground border border-border rounded-xl pl-12 pr-5 py-3 text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent transition-shadow font-manrope "
         />
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary" />
       </div>

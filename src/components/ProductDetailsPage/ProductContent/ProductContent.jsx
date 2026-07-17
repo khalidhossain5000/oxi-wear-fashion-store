@@ -21,12 +21,12 @@ const ProductContent = ({
     <div className="space-y-6">
       {/* Category Rating */}
       <div className="flex items-center justify-between font-manrope">
-        <p className="text-[11px] lg:text-xs font-medium capitalize tracking-wide text-text-secondary">
+        <p className="font-manrope text-[11px] lg:text-xs font-medium capitalize tracking-wide text-text-secondary">
           {singleProduct.category}
         </p>
         <div className="flex items-center gap-1">
           <StarRating rating={singleProduct.rating} size={12} />
-          <span className="text-[11px] text-text-secondary ">
+          <span className="text-[11px] text-text-secondary font-manrope ">
             {singleProduct.rating}
           </span>
         </div>
@@ -59,7 +59,7 @@ const ProductContent = ({
               <button
                 key={`c${i}`}
                 onClick={() => setSelectedColor(color)}
-                className={`cursor-pointer px-4 py-2 rounded-lg border-2 text-sm font-semibold transition-all duration-200 ${
+                className={`font-manrope cursor-pointer px-4 py-2 rounded-lg border-2 text-sm font-semibold transition-all duration-200 ${
                   selectedColor === color
                     ? "border-accent bg-accent dark:bg-accent-soft text-foreground dark:text-text-primary shadow-lg shadow-accent/20"
                     : "border-border bg-foreground text-text-primary hover:border-accent/50"
@@ -79,14 +79,14 @@ const ProductContent = ({
             <div>
               <p className="font-manrope text-sm font-semibold text-text-primary mb-3">
                 Size:{" "}
-                <span className="text-text-secondary">{selectedSize}</span>
+                <span className="text-text-secondary font-manrope ">{selectedSize}</span>
               </p>
               <div className=" font-manrope flex flex-wrap pt-3 lg:pt-0 gap-2">
                 {singleProduct.sizes.map((size) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`cursor-pointer min-w-12 px-4 py-2 rounded-lg border-2 text-sm font-semibold transition-all duration-200 ${
+                    className={`font-manrope cursor-pointer min-w-12 px-4 py-2 rounded-lg border-2 text-sm font-semibold transition-all duration-200 ${
                       selectedSize === size
                         ? "border-accent bg-accent dark:bg-accent-soft text-foreground dark:text-text-primary shadow-lg shadow-accent/20"
                         : "border-border bg-foreground text-text-primary hover:border-accent/50"
