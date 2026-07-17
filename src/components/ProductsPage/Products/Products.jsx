@@ -7,7 +7,7 @@ import FilterSearch from "../FilterAndSearch/FilterSearch";
 import ProductCard from "../ProductCard/ProductCard";
 
 const Products = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(`All (${products.length})`);
   const [searchQuery, setSearchQuery] = useState("");
 
   // Extract unique categories
@@ -20,7 +20,7 @@ const Products = () => {
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesCategory =
-        selectedCategory === "All" || product.category === selectedCategory;
+        selectedCategory ===`All (${products.length})` || product.category === selectedCategory;
       const matchesSearch = product.name
         .toLowerCase()
         .includes(searchQuery.toLowerCase());

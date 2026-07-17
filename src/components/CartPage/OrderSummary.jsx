@@ -59,13 +59,13 @@ const OrderSummary = ({shippingZone,setShippingZone,subtotal , total}) => {
 
               <div className="flex items-center justify-between text-lg font-semibold mb-6 font-sora">
                 <span>Total</span>
-                <span><TbCurrencyTaka />{total.toLocaleString()}</span>
+                <span className="flex items-center gap-1"><TbCurrencyTaka />{total.toLocaleString()}</span>
               </div>
 
              <div className="flex flex-col md:flex-row items-center justify-center font-manrope">
 
          
-              <PrimaryButton>   Proceed to Checkout</PrimaryButton>
+              <PrimaryButton className="px-4 lg:px-12 rounded-full">   Proceed to Checkout</PrimaryButton>
     </div>
               <p className="text-xs text-text-secondary mt-4 text-center font-manrope">
                 Free returns within 7 days.

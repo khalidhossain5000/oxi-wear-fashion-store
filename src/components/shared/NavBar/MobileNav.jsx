@@ -18,7 +18,7 @@ const MobileMenu = ({ isOpen, onClose, navLinks }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden border-none"
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-90000000000000050 md:hidden border-none"
           />
 
           {/* Slide Drawer */}
@@ -27,7 +27,7 @@ const MobileMenu = ({ isOpen, onClose, navLinks }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-background-elevated border-l z-50 p-6 flex flex-col md:hidden shadow-2xl border-none"
+            className="fixed top-0 right-0 h-full w-3/4 max-w-sm bg-background-elevated border-l  p-6 flex flex-col md:hidden shadow-2xl border-none z-90000000000000050"
           >
             {/* Close Button */}
             <div className="flex justify-end mb-10">

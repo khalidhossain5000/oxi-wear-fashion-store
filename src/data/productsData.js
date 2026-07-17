@@ -28,7 +28,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Premium Men's Regular Fit Polo Shirt",
+    name: "Premium Men's Fit Polo Shirt",
     category: "T-Shirts",
     price: 990,
     image: "/productImages/piii.jpg",
@@ -55,7 +55,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Men's Fashion Casual Sports Shoes ",
+    name: "Men's Fashion Sports Shoes ",
     category: "Shoes",
     price: 3290,
     image: "/productImages/pv.jpg",

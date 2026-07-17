@@ -9,7 +9,7 @@ const Banner = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <section className="flex items-center relative overflow-hidden min-h-screen py-36 lg:py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')] dark:bg-[url('/dark-banner.png')]">
+    <section className="flex items-center relative overflow-hidden min-h-screen py-24 md:py-36 lg:py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')] dark:bg-[url('/dark-banner.png')]">
       {/* mobile gradient bg */}
 
       <div className="xl:hidden absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import products from "@/data/productsData";
 
@@ -20,11 +20,8 @@ const FeaturedProduct = () => {
   return (
     <section className="relative text-text-primary  py-14 px-4 md:px-8 lg:px-16 z-0">
       <div className=" absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
-      
-<div className="absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-accent-soft dark:from-accent-soft/40 to-transparent -z-10" />
 
-
-
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-linear-to-t from-accent-soft dark:from-accent-soft/40 to-transparent -z-10" />
 
       <div className="container mx-auto">
         <div className="flex items-end justify-between mb-10 xl:mb-14 border-b border-border pb-6">
@@ -41,13 +38,13 @@ const FeaturedProduct = () => {
           <div className="hidden sm:flex items-center gap-2 shrink-0">
             <button
               aria-label="Previous product"
-              className="featured-prev w-11 h-11 flex items-center justify-center rounded-full border border-accent-soft text-text-primary hover:bg-accent/90 hover:text-accent-soft hover:border-accent-soft transition-colors duration-200 disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
+              className="featured-prev w-11 h-11 flex items-center justify-center rounded-full border border-accent-soft text-text-primary hover:bg-accent/90 hover:text-accent-soft hover:border-accent-soft transition-colors duration-200 cursor-pointer "
             >
               <ChevronLeft size={18} strokeWidth={1.75} />
             </button>
             <button
               aria-label="Next product"
-              className="featured-next w-11 h-11 flex items-center justify-center rounded-full border border-accent-soft text-text-primary hover:bg-accent/90 hover:text-accent-soft hover:border-accent-soft transition-colors duration-200 disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
+              className="featured-next w-11 h-11 flex items-center justify-center rounded-full border border-accent-soft text-text-primary hover:bg-accent/90 hover:text-accent-soft hover:border-accent-soft transition-colors duration-200 cursor-pointer "
             >
               <ChevronRight size={18} strokeWidth={1.75} />
             </button>
@@ -56,10 +53,16 @@ const FeaturedProduct = () => {
 
         {/* Carousel */}
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           navigation={{
             prevEl: ".featured-prev",
             nextEl: ".featured-next",
+          }}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
           }}
           spaceBetween={20}
           slidesPerView={1.15}
@@ -82,7 +85,7 @@ const FeaturedProduct = () => {
         <div className="flex sm:hidden items-center justify-center gap-3 mt-8">
           <button
             aria-label="Previous product"
-            className="featured-prev w-11 h-11 flex items-center justify-center rounded-full border border-border text-text-primary active:bg-accent/90 active:text-background transition-colors "
+            className="featured-prev w-11 h-11 flex items-center justify-center rounded-full border border-border text-text-primary active:bg-accent/90 active:text-background transition-colors disabled:bg-red-400"
           >
             <ChevronLeft size={18} strokeWidth={1.75} />
           </button>

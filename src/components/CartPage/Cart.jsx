@@ -9,6 +9,7 @@ import CartEmpty from "../shared/NotFound/CartEmpty";
 import PageBanner from "@/components/shared/PageBanner/PageBanner";
 import OrderSummary from "./OrderSummary";
 import { TbCurrencyTaka } from 'react-icons/tb';
+import Image from "next/image";
 
 const CartPage = () => {
   const [shippingZone, setShippingZone] = useState("inside");
@@ -65,19 +66,22 @@ const CartPage = () => {
                   className="bg-foreground rounded-2xl border border-border p-4 sm:p-6 flex flex-col sm:flex-row gap-4"
                 >
                   {/* Image */}
-                  <div className="w-full sm:w-32 h-32 rounded-xl overflow-hidden bg-muted-surface shrink-0">
-                    <img
-                      src={item.image}
+                  <div className="w-full h-44 sm:w-32 sm:h-32 rounded-xl overflow-hidden bg-muted-surface shrink-0">
+                 
+                    <Image
+                       src={item.image}
                       alt={item.name}
                       className="w-full h-full object-cover"
+                      width={100}
+                      height={50}
                     />
                   </div>
 
                   {/* Details */}
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-lg font-semibold">{item.name}</h3>
-                      <p className="text-sm text-text-secondary">
+                      <h3 className="text-lg font-semibold font-sora">{item.name}</h3>
+                      <p className="text-sm text-text-secondary font-manrope">
                         {item.category}
                       </p>
                       <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-text-secondary font-manrope">
@@ -88,10 +92,10 @@ const CartPage = () => {
 
                     <div className="mt-4 flex items-center justify-between flex-wrap gap-3">
                       {/* Quantity controls */}
-                      <div className="flex items-center gap-1 bg-muted-surface rounded-lg p-1">
+                      <div className="flex items-center gap-1 bg-accent-soft rounded-lg p-1">
                         <button
                           onClick={() => decreaseQuantity(item)}
-                          className="cursor-pointer p-1.5 rounded-md hover:bg-border transition-colors"
+                          className="cursor-pointer p-1.5 rounded-md hover:bg-accent transition-colors"
                           aria-label="Decrease quantity"
                         >
                           <Minus className="w-4 h-4" />
@@ -101,7 +105,7 @@ const CartPage = () => {
                         </span>
                         <button
                           onClick={() => increaseQuantity(item)}
-                          className="cursor-pointer p-1.5 rounded-md hover:bg-border transition-colors"
+                          className="cursor-pointer p-1.5 rounded-md hover:bg-accent transition-colors"
                           aria-label="Increase quantity"
                         >
                           <Plus className="w-4 h-4" />
@@ -109,7 +113,7 @@ const CartPage = () => {
                       </div>
 
                       <div className="flex items-center gap-4">
-                        <p className="font-medium">
+                        <p className="font-medium flex items-center gap-1">
                          < TbCurrencyTaka/>{(item.price * item.quantity).toLocaleString()}
                         </p>
                         <button
