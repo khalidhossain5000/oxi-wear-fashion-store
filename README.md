@@ -160,17 +160,17 @@ nokshi/
 │   ├── cart/
 │   │   └── CartPage.jsx
 │   ├── shared/
-│   │   ├── StarRating.jsx
-│   │   ├── Footer.jsx
-│   │   └── Title/
-│   │       └── SectionTitle.jsx
+│   │ 
+│   │  
+│   │   
+│   │      
 │   └── ui/                      # shadcn primitives
 ├── hooks/
-│   └── useCart.js                # localStorage-backed cart logic
+│   └── useCart.js            
 ├── data/
 │   └── productsData.js
 ├── lib/
-│   └── utils.js
+│   └── localStorage.js
 └── public/
 ```
 
