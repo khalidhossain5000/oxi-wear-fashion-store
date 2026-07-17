@@ -37,7 +37,7 @@ const Banner = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="text-center xl:text-left text-[10px] md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 lg:mb-6"
+          className="font-manrope text-center xl:text-left text-[10px] md:text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 lg:mb-6"
         >
           CRAFTED - FOR - EVERYDAY - ELEGANCE
         </motion.h6>
@@ -48,7 +48,7 @@ const Banner = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="text-center xl:text-left  text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
+          className="font-sora text-center xl:text-left  text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
         >
           <span className="bg-linear-to-r from-accent to-text-primary  bg-clip-text text-transparent">
             Timeless Fashion,
@@ -65,7 +65,7 @@ const Banner = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="text-lg sm:text-xl text-text-secondary xl:max-w-2xl mx-auto lg:mx-0 leading-relaxed pt-4 lg:pt-6 text-center xl:text-left "
+          className="font-manrope text-lg sm:text-xl text-text-secondary xl:max-w-2xl mx-auto lg:mx-0 leading-relaxed pt-4 lg:pt-6 text-center xl:text-left "
         >
           Nokshi is a contemporary fashion brand bringing together premium
           essentials, modern design, and everyday confidence in every

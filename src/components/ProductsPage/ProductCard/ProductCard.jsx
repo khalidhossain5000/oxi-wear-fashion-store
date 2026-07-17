@@ -2,8 +2,8 @@ import PrimaryButton from "@/components/shared/Button/PrimaryButton";
 import { Star } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import Rating from "react-rating";
 import { TbCurrencyTaka } from 'react-icons/tb';
+import StarRating from "@/components/shared/StarRating/StarRating";
 
 /* eslint-disable @next/next/no-img-element */
 const ProductCard = ({ product }) => {
@@ -46,19 +46,8 @@ const ProductCard = ({ product }) => {
         <div className="flex items-center gap-1 mb-3">
           {/* Rating stars */}
           <div className="flex items-center">
-            <Rating
-              initialRating={product.rating}
-              fractions={1}
-              start={0}
-              stop={5}
-              readonly
-              emptySymbol={
-                <Star size={22} className="text-gray-300 fill-gray-300" />
-              }
-              fullSymbol={
-                <Star size={22} className="text-yellow-400 fill-yellow-400" />
-              }
-            />
+           
+            <StarRating rating={product.rating}/>
           </div>
           <span className="text-sm text-text-secondary ml-1">
             ({product.rating})

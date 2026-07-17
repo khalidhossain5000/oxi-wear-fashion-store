@@ -2,7 +2,8 @@ import SecondaryButton from "@/components/shared/Button/SecondaryButton";
 import React from "react";
 import { Minus, Plus, ShoppingCart, Star } from "lucide-react";
 import { TbCoinTaka } from "react-icons/tb";
-import Rating from "react-rating";
+import StarRating from "@/components/shared/StarRating/StarRating";
+
 const ProductContent = ({
   singleProduct,
   selectedColor,
@@ -15,7 +16,7 @@ const ProductContent = ({
   cartItems
 }) => {
   const currentCartItem=cartItems.find((item)=>item.id==singleProduct.id)
-  console.log(cartItems,currentCartItem,'hey')
+
   return (
     <div className="space-y-6">
       {/* Category & Rating */}
@@ -26,19 +27,7 @@ const ProductContent = ({
         <div className="flex items-center gap-1 mb-3">
           {/* Rating stars */}
           <div className="flex items-center">
-            <Rating
-              initialRating={singleProduct.rating}
-              fractions={1}
-              start={0}
-              stop={5}
-              readonly
-              emptySymbol={
-                <Star size={22} className="text-gray-300 fill-gray-300" />
-              }
-              fullSymbol={
-                <Star size={22} className="text-yellow-400 fill-yellow-400" />
-              }
-            />
+            <StarRating rating={product.rating}/>
           </div>
           <span className="text-sm text-text-secondary ml-1">
             ({singleProduct.rating})
