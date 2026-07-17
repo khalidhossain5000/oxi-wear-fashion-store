@@ -51,25 +51,24 @@ const Footer = () => {
         {/* logo and content */}
         <div className="flex flex-col items-center gap-4 justify-between">
           <Logo />
-              <p className="max-w-sm leading-7 text-muted-text text-center mx-auto font-manrope">
-              Nokshi is a modern fashion destination offering timeless
-              styles, premium fabrics, and everyday elegance for every
-              wardrobe.
-            </p>
+          <p className="max-w-sm leading-7 text-muted-text text-center mx-auto font-manrope">
+            Nokshi is a modern fashion destination offering timeless styles,
+            premium fabrics, and everyday elegance for every wardrobe.
+          </p>
           <div className="flex items-center flex-wrap">
-          {socials.map((social, index) => {
-            const Icon = social.icon;
+            {socials.map((social, index) => {
+              const Icon = social.icon;
 
-            return (
-              <a
-                key={index}
-                href={social.href}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-accent-soft text-text transition-all duration-300 hover:-translate-y-1 hover:bg-muted-surface hover:text-background"
-              >
-                <Icon size={18} />
-              </a>
-            );
-          })}
+              return (
+                <a
+                  key={index}
+                  href={social.href}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-accent-soft text-text transition-all duration-300 hover:-translate-y-1 hover:bg-muted-surface hover:text-background"
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -77,9 +76,15 @@ const Footer = () => {
         <div>
           {contact.map((c, i) => (
             <div key={i} className="">
-              <h2  className="mb-6 text-xl xl:text-2xl lg:font-bold font-semibold text-text-primary font-sora">{c.title}</h2>
-              <h4 className="text-sm text-text-primary py-1 lg:text-lg">{c.address}</h4>
-              <h4 className="text-sm text-text-primary py-1 lg:text-lg">{c.email}</h4>
+              <h2 className="mb-6 text-xl xl:text-2xl lg:font-bold font-semibold text-text-primary font-sora">
+                {c.title}
+              </h2>
+              <h4 className="text-sm text-text-primary py-1 lg:text-lg">
+                {c.address}
+              </h4>
+              <h4 className="text-sm text-text-primary py-1 lg:text-lg">
+                {c.email}
+              </h4>
             </div>
           ))}
         </div>
@@ -88,10 +93,11 @@ const Footer = () => {
       <div className="border-t border-t-slate-200">
         <div className="max-w-7xl mx-auto pt-4">
           <p className="text-lg text-text-primary font-manrope text-center font-medium">
-            &copy;2026 <span className="font-manrope bg-linear-to-r from-teal-500 via-cyan-500 to-emerald-500 bg-clip-text text-transparent font-bold">
-  Nokshi-Fashion
-</span> All
-            Rights Reserved
+            &copy;2026{" "}
+            <span className="font-manrope bg-linear-to-r from-teal-500 via-cyan-500 to-emerald-500 bg-clip-text text-transparent font-bold">
+              Nokshi-Fashion
+            </span>{" "}
+            All Rights Reserved
           </p>
         </div>
       </div>
