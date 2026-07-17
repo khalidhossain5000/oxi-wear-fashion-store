@@ -19,8 +19,7 @@ const NavBar = () => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  
- 
+
   //sticky header
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +44,6 @@ const NavBar = () => {
       <section className="container mx-auto flex items-center justify-between">
         {/* logo */}
         <div>
-       
           <h2 className="text-3xl font-bold bg-linear-to-r from-accent to-text-primary dark:to-text-primary bg-clip-text text-transparent">
             Nokshi
           </h2>

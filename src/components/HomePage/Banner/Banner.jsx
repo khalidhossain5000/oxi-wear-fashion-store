@@ -16,7 +16,7 @@ const Banner = () => {
 
       {/* content */}
       <motion.div
-        className="container px-4 md:px-8 lg:px-16  relative z-600"
+        className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16  relative z-600"
         initial="hidden"
         key={resolvedTheme}
         whileInView="visible"

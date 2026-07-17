@@ -10,33 +10,33 @@ const ProductCard = ({ product }) => {
   return (
     <div className=" bg-foreground rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
       <div className="group transition-all duration-300">
-      {/* Product Image */}
-      <div className="relative aspect-4/5 overflow-hidden">
-        <Image
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          width={200}
-          height={100}
-        />
-        {!product.inStock && (
-          <span className="absolute top-3 left-3 bg-accent-soft text-text-primary text-xs font-semibold px-3 py-1 rounded-full">
-            Out of Stock
-          </span>
-        )}
+        {/* Product Image */}
+        <div className="relative aspect-4/5 overflow-hidden">
+          <Image
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            width={200}
+            height={100}
+          />
+          {!product.inStock && (
+            <span className="absolute top-3 left-3 bg-accent-soft text-text-primary text-xs font-semibold px-3 py-1 rounded-full">
+              Out of Stock
+            </span>
+          )}
 
-        {product.inStock && (
-          <span className="absolute top-3 left-3 bg-accent-soft  text-text-primary text-xs font-semibold px-3 py-1 rounded-full">
-            In Stock
-          </span>
-        )}
-        {product.isFeatured && (
-          <span className="absolute top-3 right-3 bg-accent-soft text-text-primary text-xs font-semibold px-3 py-1 rounded-full">
-            Featured
-          </span>
-        )}
+          {product.inStock && (
+            <span className="absolute top-3 left-3 bg-accent-soft  text-text-primary text-xs font-semibold px-3 py-1 rounded-full">
+              In Stock
+            </span>
+          )}
+          {product.isFeatured && (
+            <span className="absolute top-3 right-3 bg-accent-soft text-text-primary text-xs font-semibold px-3 py-1 rounded-full">
+              Featured
+            </span>
+          )}
+        </div>
       </div>
-</div>
       {/* Product Details */}
       <div className="p-5 flex flex-col grow">
         {/* Category Rating */}
@@ -46,7 +46,9 @@ const ProductCard = ({ product }) => {
           </p>
           <div className="flex items-center gap-1">
             <StarRating rating={product.rating} size={12} />
-            <span className="text-[11px] text-text-secondary ">{product.rating}</span>
+            <span className="text-[11px] text-text-secondary ">
+              {product.rating}
+            </span>
           </div>
         </div>
         <h3 className="text-lg font-bold text-text-primary mb-2 line-clamp-2">
@@ -57,7 +59,7 @@ const ProductCard = ({ product }) => {
           {product.description}
         </p>
         <div className="flex items-center justify-between mt-auto">
-          <span className="text-xl font-bold text-accent">
+          <span className="flex items-center gap-1 text-xl font-bold text-accent">
             <TbCurrencyTaka />
             {product.price}
           </span>
