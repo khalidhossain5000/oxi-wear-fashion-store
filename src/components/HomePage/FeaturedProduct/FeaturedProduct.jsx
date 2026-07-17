@@ -18,8 +18,8 @@ const FeaturedProduct = () => {
   if (featuredProduct.length === 0) return null;
 
   return (
-    <section className="bg-background text-text-primary px-4 py-14 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-background text-text-primary  py-14 px-4 md:px-8 lg:px-16">
+      <div className="container mx-auto">
   
         <div className="flex items-end justify-between mb-10 xl:mb-14 border-b border-border pb-6">
           

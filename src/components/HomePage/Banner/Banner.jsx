@@ -9,16 +9,14 @@ const Banner = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <section
-      className="flex items-center relative overflow-hidden min-h-screen py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')] dark:bg-[url('/dark-banner.png')]"
-    >
+    <section className="flex items-center relative overflow-hidden min-h-screen py-36 lg:py-40  bg-cover bg-center bg-no-repeat z-100   bg-[url('/light-banner.png')] dark:bg-[url('/dark-banner.png')]">
       {/* mobile gradient bg */}
 
       <div className="xl:hidden absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-background dark:from-accent-soft/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
 
       {/* content */}
       <motion.div
-        className="container mx-auto px-4 relative z-600"
+        className="container px-4 md:px-8 lg:px-16  relative z-600"
         initial="hidden"
         key={resolvedTheme}
         whileInView="visible"
@@ -55,7 +53,10 @@ const Banner = () => {
           </span>
           <br />
           <span className="text-text-primary dark:text-text-primary">
-            Designed for Every Moment.
+            Designed for Every{" "}
+            <span className="bg-linear-to-r from-teal-500 to-teal-900  bg-clip-text text-transparent">
+              Moment
+            </span>
           </span>
         </motion.h2>
 

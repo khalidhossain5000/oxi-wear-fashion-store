@@ -6,13 +6,12 @@ import CartToast from "@/components/ProductDetailsPage/CartToast/CartToast";
 import { getCartFromStorage, setCartToStorage } from "@/utils/localStorage";
 
 const CartProvider = ({ children }) => {
-  // const [cartItems, setCartItems] = useState([]);
-const [cartItems, setCartItems] = useState(() => getCartFromStorage());
+  const [cartItems, setCartItems] = useState(getCartFromStorage);
 
-//set cart item from localstorage if exist
- useEffect(() => {
-  setCartToStorage(cartItems);
-}, [cartItems]);
+  //set cart item from localstorage if exist
+  useEffect(() => {
+    setCartToStorage(cartItems);
+  }, [cartItems]);
   //optimized function checking if item and variant already exist
   const isSameVariant = (item, cartItem) =>
     item.id === cartItem.id &&
@@ -90,29 +89,6 @@ const [cartItems, setCartItems] = useState(() => getCartFromStorage());
           : item,
       );
     });
-
-    //if ottost issue then
-    //   const existingItem = cartItems.find((item) =>
-    //   isSameVariant(item, cartItem)
-    // );
-
-    // if (!existingItem) return;
-
-    // if (existingItem.quantity === 1) {
-    //   toast.warning("Minimum quantity is 1.", {
-    //     position: "bottom-right",
-    //   });
-
-    //   return;
-    // }
-
-    // setCartItems((prevCart) =>
-    //   prevCart.map((item) =>
-    //     isSameVariant(item, cartItem)
-    //       ? { ...item, quantity: item.quantity - 1 }
-    //       : item
-    //   )
-    // );
   };
 
   //remove item from cart

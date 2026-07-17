@@ -1,10 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import StarRating from "@/components/shared/StarRating/StarRating";
+import Image from "next/image";
 
 const FeaturedCard = ({ product }) => {
   const { name, category, price, image, rating, colors } = product;
@@ -18,10 +17,12 @@ const FeaturedCard = ({ product }) => {
       >
         {/* Image */}
         <div className="relative w-full aspect-3/4 overflow-hidden bg-muted-surface">
-          <img
+          <Image
             src={image}
             alt={name}
             className="w-full h-full object-cover transition-transform duration-500 lg:group-hover:scale-105"
+            width={200}
+            height={100}
           />
 
           {/* Details button — always visible on mobile/tablet, hover-reveal on desktop */}
@@ -73,7 +74,7 @@ const FeaturedCard = ({ product }) => {
           {/* Price + Colors */}
           <div className="flex items-center justify-between mt-1">
             <span className="text-base font-semibold text-text-primary flex items-center">
-              <TbCurrencyTaka size={17}/>
+              <TbCurrencyTaka size={17} />
               {price.toLocaleString()}
             </span>
 
