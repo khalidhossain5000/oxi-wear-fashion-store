@@ -11,8 +11,11 @@ const ProductContent = ({
   setSelectedSize,
   quantity,
   setQuantity,
-  handleAddToCart
+  handleAddToCart,
+  cartItems
 }) => {
+  const currentCartItem=cartItems.find((item)=>item.id==singleProduct.id)
+  console.log(cartItems,currentCartItem,'hey')
   return (
     <div className="space-y-6">
       {/* Category & Rating */}
@@ -123,7 +126,7 @@ const ProductContent = ({
             <Minus />
           </button>
           <span className="font-sora px-4 py-3 text-sm lg:text-lg font-semibold text-text-primary  min-w-6 lg:min-w-12 text-center bg-foreground">
-            Quantity : {quantity}
+            Quantity : {currentCartItem?.quantity || quantity}
           </span>
           <button
             onClick={() => setQuantity(quantity + 1)}

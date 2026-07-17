@@ -3,13 +3,13 @@ import NotFound from "@/components/shared/NotFound/NotFound";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import products from "@/data/productsData";
-import ProductContent from "../ProductDetailsContent/ProductContent";
+import ProductContent from "../ProductContent/ProductContent";
 
 import useCart from "@/Hooks/useCart";
 
 const ProductDetails = ({ id }) => {
   const singleProduct = products.find((p) => p.id == id);
-  const { addToCart } = useCart();
+  const { addToCart ,cartItems} = useCart();
 
   const [selectedColor, setSelectedColor] = useState(
     singleProduct?.colors[0] || "",
@@ -22,6 +22,7 @@ const ProductDetails = ({ id }) => {
 
   if (!singleProduct) return <NotFound />;
   const handleAddToCart = (item) => {
+  
     const {
       colors,
       sizes,
@@ -41,7 +42,7 @@ const ProductDetails = ({ id }) => {
     //calling add to cart
     addToCart(cartData);
 
-    console.log(cartData, "this is cart data");
+
   };
   return (
     <section className="min-h-screen bg-background py-26 xl:py-44 relative ">
@@ -107,6 +108,7 @@ const ProductDetails = ({ id }) => {
             quantity={quantity}
             setQuantity={setQuantity}
             handleAddToCart={handleAddToCart}
+            cartItems={cartItems}
           />
         </motion.div>
       </motion.div>
