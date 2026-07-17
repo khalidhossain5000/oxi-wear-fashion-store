@@ -4,6 +4,8 @@ import { ArrowUpRight } from "lucide-react";
 import { TbCurrencyTaka } from "react-icons/tb";
 import StarRating from "@/components/shared/StarRating/StarRating";
 import Image from "next/image";
+import Link from "next/link";
+
 
 const FeaturedCard = ({ product }) => {
   const { name, category, price, image, rating, colors } = product;
@@ -25,7 +27,6 @@ const FeaturedCard = ({ product }) => {
             height={100}
           />
 
-       
           <div
             className="
             absolute inset-x-0 bottom-0 p-3
@@ -35,10 +36,12 @@ const FeaturedCard = ({ product }) => {
             transition-all duration-300 ease-out
           "
           >
-            <button className="cursor-pointer w-full flex items-center justify-center gap-1.5 bg-accent text-background text-sm font-medium py-2.5 rounded-full hover:opacity-90 transition-opacity">
-              Show Details
-              <ArrowUpRight size={15} strokeWidth={2} />
-            </button>
+            <Link href={`/products/${product.id}`}>
+              <button className="cursor-pointer w-full flex items-center justify-center gap-1.5 bg-accent text-background text-sm font-medium py-2.5 rounded-full hover:opacity-90 transition-opacity">
+                Show Details
+                <ArrowUpRight size={15} strokeWidth={2} />
+              </button>
+            </Link>
           </div>
           {!product.inStock && (
             <span className="absolute top-3 left-3 bg-accent-soft text-text-primary text-xs font-semibold px-3 py-1 rounded-full">

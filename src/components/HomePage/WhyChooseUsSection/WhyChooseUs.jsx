@@ -1,13 +1,11 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
-import SectionTitle from '@/components/shared/Title/SectionTitle';
-import { features } from './ChooseUsData';
-import FeatureCard from './FeatureCard';
-
-
+import SectionTitle from "@/components/shared/Title/SectionTitle";
+import { features } from "./ChooseUsData";
+import FeatureCard from "./FeatureCard";
 
 const containerVariants = {
   hidden: {},
@@ -23,13 +21,17 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: 'easeOut' },
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-background text-text-primary px-4 py-14 lg:py-22 xl:py-26 md:px-8 lg:px-16">
+    <section className="relative bg-background text-text-primary px-4 py-14 lg:py-22 xl:py-26 md:px-8 lg:px-16 z-0">
+      <div className=" absolute inset-0 -z-10 bg-linear-to-br from-accent-soft via-background to-accent-soft dark:from-accent-soft/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
+
+      <div className=" absolute top-0 right-0 bg-linear-to-br from-accent-soft via-background to-accent-soft dark:from-accent-soft/60 dark:via-background dark:to-background text-center lg:text-left space-y-5" />
+
       <div className="container mx-auto">
         {/* Header */}
         <div className="mb-10 pb-6">
@@ -51,14 +53,16 @@ const WhyChooseUs = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {features.map((feature) => (
-            <FeatureCard key={feature.title} feature={feature} itemVariants={itemVariants}/>
+            <FeatureCard
+              key={feature.title}
+              feature={feature}
+              itemVariants={itemVariants}
+            />
           ))}
         </motion.div>
       </div>
     </section>
   );
 };
-
-
 
 export default WhyChooseUs;

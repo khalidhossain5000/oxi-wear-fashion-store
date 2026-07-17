@@ -16,7 +16,7 @@ const Banner = () => {
 
       {/* content */}
       <motion.div
-        className="container px-4 md:px-8 lg:px-16 3xl:ml-32 relative z-600 "
+        className="container px-4 md:px-8 lg:px-16 3xl:ml-32  relative z-600 "
         initial="hidden"
         key={resolvedTheme}
         whileInView="visible"
@@ -66,7 +66,7 @@ const Banner = () => {
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
-          className="font-manrope text-lg sm:text-xl text-text-secondary xl:max-w-2xl mx-auto lg:mx-0 leading-relaxed pt-4 lg:pt-6 text-center xl:text-left "
+          className="font-manrope text-sm sm:text-xl text-text-secondary xl:max-w-2xl mx-auto lg:mx-0 leading-relaxed pt-4 lg:pt-6 text-center xl:text-left "
         >
           Nokshi is a contemporary fashion brand bringing together premium
           essentials, modern design, and everyday confidence in every
@@ -75,7 +75,7 @@ const Banner = () => {
 
         {/* btn */}
         <div className="text-center xl:text-left">
-          <PrimaryButton className={"mt-6 lg:mt-12 mx-auto"}>
+          <PrimaryButton className={"mt-6 lg:mt-12 mx-auto rounded-2xl px-10 xl:px-16"}>
             Shop Now
           </PrimaryButton>
         </div>

@@ -36,7 +36,7 @@ const SectionTitle = ({ children, className, subTitle ,subTitleClass }) => {
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
         }}
-        className={`text-lg sm:text-xl text-text-secondary  lg:mx-0 leading-relaxed  ${subTitleClass}`}
+        className={`text-sm sm:text-xl text-text-secondary  lg:mx-0 leading-relaxed  ${subTitleClass}`}
       >
         {subTitle}
       </motion.p>

@@ -10,7 +10,6 @@ import MobileMenu from "./MobileNav";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
   { name: "Cart", href: "/cart" },
 ];
@@ -56,7 +55,7 @@ const NavBar = () => {
               <Link
                 key={`k${i}`}
                 href={link.href}
-                className={`relative z-600 text-text-primary hover:text-gray-600 font-medium transition-colors text-xl capitalize ${isActive ? "bg-[#29eddd5a]  dark:bg-accent-soft px-4 py-2 rounded-full" : ""}`}
+                className={`relative z-600 text-text-primary hover:text-gray-600 font-medium transition-colors text-lg capitalize ${isActive ? "bg-[#29eddd5a]  dark:bg-accent-soft px-4 py-2 rounded-full" : ""}`}
               >
                 {link.name}
               </Link>
